@@ -17,7 +17,7 @@ import * as storage from './storage.ts';
 
 const config = {
   "DISCORD_CLIENT_ID": "1310810269232005202",
-  "DISCORD_CLIENT_SECRET": "8-uzObIFWrwxeRvIUmMz2pMGu2k5tDzH",
+  "DISCORD_CLIENT_SECRET": process.env.DISCORD_CLIENT_SECRET as string,
   "DISCORD_REDIRECT_URI": "https://mijovia-linked-roles.onrender.com/discord-oauth-callback"
 }
 export const getOAuthUrl = () => {
