@@ -152,13 +152,13 @@ const metadata = [
         "type": 7,
         "key": "vogersberg",
         "name": "Vogersberg",
-        "description": "When the member is in Vogersberg which is the ABUC base."
+        "description": "Be in Vogersberg, the ABUC base."
     },
     {
         "type": 7,
         "key": "savannia",
         "name": "Savannia",
-        "description": "When the member is in Savannia which is the VWOT server."
+        "description": "Be in Savannia, the VWOT server."
     },
 ]
 await client.rest.put(Routes.applicationRoleConnectionMetadata(client.application!.id), {"body": metadata})
