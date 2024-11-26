@@ -10,6 +10,14 @@ import * as storage from './storage.js';
 /**
  * Main HTTP server used for the bot.
  */
+const isInServer = async (guildId: string, userId: string) => {
+    try {
+        await (await client.guilds.fetch(guildId)).members.fetch(userId);
+        return true;
+    } catch (e) {
+        return false;
+    };
+}
 const config = {
     "COOKIE_SECRET": process.env.COOKIE_SECRET
 }
@@ -116,8 +124,8 @@ async function updateMetadata(userId: string) {
     // is going to be different.  To keep the example simple, we'll
     // just generate some random data. 
     metadata = {
-        vogersberg: (await client.guilds.fetch("1278055650924036116")).members.cache.has(userId) ? 1 : 0,
-        savannia: (await client.guilds.fetch("1130954621561602258")).members.cache.has(userId) ? 1 : 0
+        vogersberg: (await isInServer("1278055650924036116", userId)) ? 1 : 0,
+        savannia: (await isInServer("1130954621561602258", userId)) ? 1 : 0
     };
   } catch (e) {
     if (typeof e === "object" && e && "message" in e) e.message = `Error fetching external data: ${e.message}`;
