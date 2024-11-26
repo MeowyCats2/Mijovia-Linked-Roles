@@ -116,8 +116,8 @@ async function updateMetadata(userId: string) {
     // is going to be different.  To keep the example simple, we'll
     // just generate some random data. 
     metadata = {
-        vogersberg: (await client.guilds.fetch("1278055650924036116")).members.resolve(userId) ? 1 : 0,
-        savannia: (await client.guilds.fetch("1130954621561602258")).members.resolve(userId) ? 1 : 0
+        vogersberg: (await client.guilds.fetch("1278055650924036116")).members.cache.has(userId) ? 1 : 0,
+        savannia: (await client.guilds.fetch("1130954621561602258")).members.cache.has(userId) ? 1 : 0
     };
   } catch (e) {
     if (typeof e === "object" && e && "message" in e) e.message = `Error fetching external data: ${e.message}`;
