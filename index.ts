@@ -7,14 +7,6 @@ import cookieParser from 'cookie-parser';
 //import config from './config.js';
 import * as discord from './oauth2.ts';
 import * as storage from './storage.js';
-console.log((await (await client.channels.fetch("1310828248564764722"))!.send({
-    "files": [
-        {
-            "attachment": Buffer.from(JSON.stringify({}), "utf8"),
-            "name": "data.json"
-        }
-    ]
-})).id)
 /**
  * Main HTTP server used for the bot.
  */
@@ -135,7 +127,8 @@ async function updateMetadata(userId: string) {
     // where the user revokes an external app permissions, and is left with
     // stale linked role data.
   }
-
+  console.log(userId)
+  console.log(metadata)
   // Push the data to Discord.
   await discord.pushMetadata(userId, tokens, metadata);
 }

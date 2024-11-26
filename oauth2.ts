@@ -122,7 +122,7 @@ export const pushMetadata = async (userId: string, tokens: {expires_at: number, 
   const url = `https://discord.com/api/v10/users/@me/applications/${config.DISCORD_CLIENT_ID}/role-connection`;
   const accessToken = await getAccessToken(userId, tokens);
   const body = {
-    platform_name: 'Example Linked Role Discord Bot',
+    platform_name: 'Mijovia Groups',
     metadata,
   };
   const response = await fetch(url, {
